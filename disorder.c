@@ -1,46 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_swap.c                                          :+:      :+:    :+:   */
+/*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akkaraka <akkaraka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/23 13:26:39 by akkaraka          #+#    #+#             */
-/*   Updated: 2026/06/24 17:14:16 by akkaraka         ###   ########.fr       */
+/*   Created: 2026/06/24 18:42:50 by akkaraka          #+#    #+#             */
+/*   Updated: 2026/06/24 19:24:19 by akkaraka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_stack **stack)
+double	compute_disorder(t_stack *stack)
 {
-	t_stack	*first;
-	t_stack	*second;
+	t_stack	*i;
+	t_stack *j;
+	double	mistakes;
+	double	total_pairs;
 
-	if (!*stack || !(*stack)->next)
-		return ;
-	first = *stack;
-	second = (*stack)->next;
-	first->next = second->next;
-	second->next = first;
-	*stack = second;
-}
-
-void	sa(t_stack **a)
-{
-	swap(a);
-	ft_printf("sa\n");
-}
-
-void	sb(t_stack **b)
-{
-	swap(b);
-	ft_printf("sb\n");
-}
-
-void	ss(t_stack **a, t_stack **b)
-{
-	swap(a);
-	swap(b);
-	ft_printf("ss\n");
+	mistakes = 0;
+	total_pairs = 0;
+	i = stack;
+	while (i)
+	{
+		j = i->next;
+		while (j)
+		{
+			total_pairs++;
+			if (i->value > j->value)
+				mistakes++;
+			j = j->next;
+		}
+		i = i->next;
+	}
+	if (total_pairs == 0)
+		return (0);
+	return ((float)mistakes / total_pairs);
 }
