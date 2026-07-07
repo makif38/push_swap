@@ -6,7 +6,7 @@
 /*   By: akkaraka <akkaraka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 13:26:39 by akkaraka          #+#    #+#             */
-/*   Updated: 2026/06/24 17:14:16 by akkaraka         ###   ########.fr       */
+/*   Updated: 2026/07/07 18:20:34 by akkaraka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,27 @@ static void	swap(t_stack **stack)
 	*stack = second;
 }
 
-void	sa(t_stack **a)
+void	sa(t_data *data)
 {
-	swap(a);
+	swap(&data->a);
+	data->bench.sa++;
+	data->bench.total++;
 	ft_printf("sa\n");
 }
 
-void	sb(t_stack **b)
+void	sb(t_data *data)
 {
-	swap(b);
+	swap(&data->b);
+	data->bench.sb++;
+	data->bench.total++;
 	ft_printf("sb\n");
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_data *data)
 {
-	swap(a);
-	swap(b);
+	swap(&data->a);
+	swap(&data->b);
+	data->bench.ss++;
+	data->bench.total++;
 	ft_printf("ss\n");
 }

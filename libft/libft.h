@@ -6,7 +6,7 @@
 /*   By: akkaraka <akkaraka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 15:50:08 by akkaraka          #+#    #+#             */
-/*   Updated: 2026/06/24 19:19:16 by akkaraka         ###   ########.fr       */
+/*   Updated: 2026/07/06 13:59:40 by akkaraka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+long	ft_atol(const char *str);
 
 #endif

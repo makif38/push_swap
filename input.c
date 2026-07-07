@@ -6,7 +6,7 @@
 /*   By: akkaraka <akkaraka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 17:31:47 by akkaraka          #+#    #+#             */
-/*   Updated: 2026/06/24 18:02:58 by akkaraka         ###   ########.fr       */
+/*   Updated: 2026/07/06 13:57:03 by akkaraka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static int	is_valid_number(char *str)
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (!str[i])
+		return (0);
+	if (ft_atol(str) < INT_MIN || ft_atol(str) > INT_MAX || ft_strlen(str) > 11)
 		return (0);
 	while (str[i])
 	{

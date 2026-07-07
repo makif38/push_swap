@@ -1,43 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_push.c                                          :+:      :+:    :+:   */
+/*   adaptive_alg.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akkaraka <akkaraka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/23 14:49:50 by akkaraka          #+#    #+#             */
-/*   Updated: 2026/07/07 18:12:15 by akkaraka         ###   ########.fr       */
+/*   Created: 2026/06/25 19:30:50 by akkaraka          #+#    #+#             */
+/*   Updated: 2026/07/07 18:38:51 by akkaraka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_data *data)
+void	adaptive_sort(t_data *data)
 {
-	t_stack *tmp;
-
-	if (!data->b)
-		return ;
-	tmp = data->b;
-	data->b = data->b->next;
-	tmp->next = data->a;
-	data->a = tmp;
-	data->bench.pa++;
-	data->bench.total++;
-	ft_printf("pa\n");
-}
-
-void	pb(t_data *data)
-{
-	t_stack *tmp;
-
-	if (!data)
-		return ;
-	tmp = data->a;
-	data->a = data->a->next;
-	tmp->next = data->b;
-	data->b = tmp;
-	data->bench.pb++;
-	data->bench.total++;
-	ft_printf("pb\n");
+	float	disorder;
+	
+	disorder = compute_disorder(data->a);
+	if (disorder < 0.2)
+		selection_sort(data);
+	else if (disorder < 0.5)
+		chunk_sort(data);
+	else
+		radix_sort(data);
 }

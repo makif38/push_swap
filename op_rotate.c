@@ -6,7 +6,7 @@
 /*   By: akkaraka <akkaraka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 13:51:15 by akkaraka          #+#    #+#             */
-/*   Updated: 2026/06/23 14:46:31 by akkaraka         ###   ########.fr       */
+/*   Updated: 2026/07/07 18:17:31 by akkaraka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,27 @@ static void	rotate(t_stack **stack)
 	first->next = NULL;
 }
 
-void	ra(t_stack **a)
+void	ra(t_data *data)
 {
-	rotate(a);
+	rotate(&data->a);
+	data->bench.ra++;
+	data->bench.total++;
 	ft_printf("ra\n");
 }
 
-void	rb(t_stack **b)
+void	rb(t_data *data)
 {
-	rotate(b);
+	rotate(&data->b);
+	data->bench.rb++;
+	data->bench.total++;
 	ft_printf("rb\n");
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_data *data)
 {
-	rotate(a);
-	rotate(b);
+	rotate(&data->a);
+	rotate(&data->b);
+	data->bench.rr++;
+	data->bench.total++;
 	ft_printf("rr\n");
 }
