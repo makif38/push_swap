@@ -6,7 +6,7 @@
 /*   By: akkaraka <akkaraka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 18:42:50 by akkaraka          #+#    #+#             */
-/*   Updated: 2026/06/24 19:24:19 by akkaraka         ###   ########.fr       */
+/*   Updated: 2026/07/12 01:06:46 by akkaraka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 double	compute_disorder(t_stack *stack)
 {
 	t_stack	*i;
-	t_stack *j;
+	t_stack	*j;
 	double	mistakes;
 	double	total_pairs;
 

@@ -6,7 +6,7 @@
 /*   By: akkaraka <akkaraka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:14:13 by akkaraka          #+#    #+#             */
-/*   Updated: 2026/07/07 22:18:15 by akkaraka         ###   ########.fr       */
+/*   Updated: 2026/07/12 01:03:24 by akkaraka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	sa(t_data *data);
 void	sb(t_data *data);
 void	ss(t_data *data);
 t_stack	*new_node(int value);
-int	stack_size(t_stack *stack);
+int		stack_size(t_stack *stack);
 t_stack	*parse_input(int argc, char **argv);
 double	compute_disorder(t_stack *stack);
 void	selection_sort(t_data *data);

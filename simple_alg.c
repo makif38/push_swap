@@ -6,13 +6,13 @@
 /*   By: akkaraka <akkaraka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:50:32 by akkaraka          #+#    #+#             */
-/*   Updated: 2026/07/07 18:24:50 by akkaraka         ###   ########.fr       */
+/*   Updated: 2026/07/12 01:07:22 by akkaraka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int min_position(t_stack *stack)
+int	min_position(t_stack *stack)
 {
 	t_stack	*current;
 	int		min_value;
@@ -54,7 +54,7 @@ void	rotate_top(t_data *data, int position, int size)
 void	selection_sort(t_data *data)
 {
 	int	size;
-	int min_pos;
+	int	min_pos;
 
 	size = stack_size(data->a);
 	while (data->a)

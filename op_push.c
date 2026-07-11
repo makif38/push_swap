@@ -6,7 +6,7 @@
 /*   By: akkaraka <akkaraka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 14:49:50 by akkaraka          #+#    #+#             */
-/*   Updated: 2026/07/07 18:12:15 by akkaraka         ###   ########.fr       */
+/*   Updated: 2026/07/12 00:50:56 by akkaraka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	pa(t_data *data)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!data->b)
 		return ;
@@ -29,7 +29,7 @@ void	pa(t_data *data)
 
 void	pb(t_data *data)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!data)
 		return ;

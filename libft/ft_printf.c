@@ -6,7 +6,7 @@
 /*   By: akkaraka <akkaraka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 16:19:13 by akkaraka          #+#    #+#             */
-/*   Updated: 2026/06/24 19:15:59 by akkaraka         ###   ########.fr       */
+/*   Updated: 2026/07/12 00:48:57 by akkaraka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			i++;
+			while (str[i] == '.' || (str[i] >= '0' && str[i] <= '9'))
+				i++;
 			count += checknext(str[i], args);
 		}
 		else

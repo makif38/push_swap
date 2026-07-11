@@ -6,7 +6,7 @@
 /*   By: akkaraka <akkaraka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 16:54:49 by akkaraka          #+#    #+#             */
-/*   Updated: 2026/06/24 17:14:18 by akkaraka         ###   ########.fr       */
+/*   Updated: 2026/07/12 01:06:28 by akkaraka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_stack	*new_node(int value)
 {
-	t_stack *node;
+	t_stack	*node;
 
 	node = malloc(sizeof(t_stack));
 	if (!node)
@@ -61,7 +61,7 @@ void	print_stack(t_stack *stack, char *name)
 
 void	free_stack(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	while (*stack)
 	{

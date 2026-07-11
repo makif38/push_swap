@@ -6,7 +6,7 @@
 /*   By: akkaraka <akkaraka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 17:31:47 by akkaraka          #+#    #+#             */
-/*   Updated: 2026/07/06 13:57:03 by akkaraka         ###   ########.fr       */
+/*   Updated: 2026/07/11 20:15:36 by akkaraka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,30 +43,55 @@ static int	duplicate_check(t_stack *stack, int value)
 	return (0);
 }
 
-t_stack *parse_input(int argc, char **argv)
+static int	check_and_push(t_stack **a, char *str)
+{
+	int	value;
+
+	if (!is_valid_number(str))
+		return (0);
+	value = ft_atoi(str);
+	if (duplicate_check(*a, value))
+		return (0);
+	push_front(a, value);
+	return (1);
+}
+
+static void	parse_split(t_stack **a, char *str)
+{
+	char	**split;
+	int		j;
+
+	split = ft_split(str, ' ');
+	j = 0;
+	while (split[j])
+		j++;
+	j--;
+	while (j >= 0)
+	{
+		if (!check_and_push(a, split[j]))
+		{
+			free_stack(a);
+			ft_printf("Error\n");
+			exit(1);
+		}
+		j--;
+	}
+	j = 0;
+	while (split[j])
+		free(split[j++]);
+	free(split);
+}
+
+t_stack	*parse_input(int argc, char **argv)
 {
 	t_stack	*a;
-	int		value;
 	int		i;
 
 	a = NULL;
 	i = argc - 1;
-	while (i >= 1)
+	while (i >= 0)
 	{
-		if (!is_valid_number(argv[i]))
-		{
-			free_stack(&a);
-			ft_printf("Error\n");
-			exit (1);
-		}
-		value = ft_atoi(argv[i]);
-		if (duplicate_check(a, value))
-		{
-			free_stack(&a);
-			ft_printf("Error\n");
-			exit (1);
-		}
-		push_front(&a, value);
+		parse_split(&a, argv[i]);
 		i--;
 	}
 	return (a);
